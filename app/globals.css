@@ -1,0 +1,67 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600&family=Roboto+Slab:wght@400&family=Roboto:wght@400;500&display=swap');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 0 0% 12.5%;
+    --primary: 0 0% 12.5%;
+    --secondary: 78 100% 75%;
+    --accent: 60 100% 75%;
+    --text: 0 0% 41.6%;
+  }
+
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans;
+    font-family: 'Outfit', 'Roboto', sans-serif;
+  }
+
+  h1 {
+    @apply text-h1 text-primary font-outfit font-semibold;
+  }
+
+  h2 {
+    @apply text-h2 text-primary font-outfit font-medium;
+  }
+
+  h3 {
+    @apply text-h3 text-primary font-outfit font-medium;
+  }
+
+  h4 {
+    @apply text-h4 text-primary font-outfit font-medium;
+  }
+
+  h5 {
+    @apply text-h5 text-primary font-outfit font-medium;
+  }
+
+  h6 {
+    @apply text-h6 text-primary font-outfit font-medium;
+  }
+
+  @media (max-width: 1024px) {
+    h1 {
+      @apply text-h1-tablet;
+    }
+    h2 {
+      @apply text-h2-tablet;
+    }
+    h3 {
+      @apply text-h3-tablet;
+    }
+    h4 {
+      @apply text-h4-tablet;
+    }
+    h5 {
+      @apply text-h5-tablet;
+    }
+  }
+}
+
