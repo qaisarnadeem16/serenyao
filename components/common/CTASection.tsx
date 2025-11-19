@@ -20,7 +20,7 @@ export default function CTASection({
 }: CTASectionProps) {
   return (
     <section className={className}>
-      <div className="container mx-auto px-5 text-center">
+      <div className="container text-center">
         <h2 className="text-h2 md:text-h2-tablet mb-6">{title}</h2>
         <p className="text-body1 text-text mb-8 max-w-2xl mx-auto">{description}</p>
         {buttonHref ? (

@@ -3,6 +3,12 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer components {
+  .container {
+    @apply max-w-[1300px] mx-auto px-5 md:px-10;
+  }
+}
+
 @layer base {
   :root {
     --background: 0 0% 100%;

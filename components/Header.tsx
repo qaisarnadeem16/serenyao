@@ -4,24 +4,34 @@ import Image from "next/image";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { useState } from "react";
+import { usePathname } from "next/navigation";
 import { Menu, X } from "lucide-react";
 
 const menuItems = [
   { label: "Home", href: "/" },
-  { label: "About us", href: "/about-us" },
-  { label: "Shop All Books", href: "/products" },
+  { label: "About", href: "/about-us" },
+  { label: "Products", href: "/products" },
   { label: "Collections", href: "/collections" },
+  { label: "Campaigns", href: "/campaigns" },
   { label: "Top Picks", href: "/top-picks" },
 ];
 
 export default function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const pathname = usePathname();
+
+  const isActive = (href: string) => {
+    if (href === "/") {
+      return pathname === "/";
+    }
+    return pathname.startsWith(href);
+  };
 
   return (
     <>
       {/* Top Banner */}
-      <div className="bg-secondary py-5 px-0 hidden md:block">
-        <div className="container mx-auto px-5">
+      <div className="bg-secondary py-6 px-0 hidden md:block">
+        <div className="container">
           <div className="flex flex-col items-center justify-center">
             <p className="text-subtitle text-primary font-outfit font-medium uppercase">
               Save 20% on Your First Order! Don't Miss Out.{" "}
@@ -32,18 +42,18 @@ export default function Header() {
       </div>
 
       {/* Main Header */}
-      <header className="bg-purple py-5 px-5">
-        <div className="container mx-auto">
+      <header className="bg-purple py-3">
+        <div className="container">
           <div className="flex flex-row justify-between items-center">
             {/* Logo */}
             <div className="w-[30%] md:w-[20%]">
               <Link href="/">
                 <Image
-                  src="https://narakido.tokotema.xyz/wp-content/uploads/2024/11/Logo.png"
+                  src="/assets/Logos/logo.png"
                   alt="Narakido Logo"
-                  width={181}
+                  width={180}
                   height={44}
-                  className="w-auto h-auto"
+                  className=""
                 />
               </Link>
             </div>
@@ -55,7 +65,11 @@ export default function Header() {
                   <li key={item.href}>
                     <Link
                       href={item.href}
-                      className="text-button text-white hover:text-secondary transition-colors"
+                      className={`text-button transition-colors ${
+                        isActive(item.href)
+                          ? "text-secondary"
+                          : "text-white hover:text-secondary"
+                      }`}
                     >
                       {item.label}
                     </Link>
@@ -85,13 +99,17 @@ export default function Header() {
         {/* Mobile Menu */}
         {mobileMenuOpen && (
           <div className="md:hidden mt-4 pb-4 border-t border-gray/20">
-            <nav className="container mx-auto px-5 pt-4">
+            <nav className="container pt-4">
               <ul className="flex flex-col gap-4">
                 {menuItems.map((item) => (
                   <li key={item.href}>
                     <Link
                       href={item.href}
-                      className="text-button text-white hover:text-secondary transition-colors block"
+                      className={`text-button transition-colors block ${
+                        isActive(item.href)
+                          ? "text-secondary"
+                          : "text-white hover:text-secondary"
+                      }`}
                       onClick={() => setMobileMenuOpen(false)}
                     >
                       {item.label}

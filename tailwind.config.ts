@@ -8,7 +8,23 @@ const config: Config = {
     "./app/**/*.{js,ts,jsx,tsx,mdx}",
   ],
   theme: {
+    container: {
+      center: true,
+      padding: {
+        DEFAULT: '1.25rem',
+        md: '2.5rem',
+      },
+      screens: {
+        DEFAULT: '100%',
+        md: '768px',
+        lg: '1024px',
+        xl: '1140px',
+      },
+    },
     extend: {
+      maxWidth: {
+        'container': '1140px',
+      },
       colors: {
         // System colors
         primary: "#202020",

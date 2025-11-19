@@ -28,26 +28,28 @@ export default function ImageTextSection({
   reverse = false,
 }: ImageTextSectionProps) {
   return (
-    <div className={`flex flex-col ${reverse ? "md:flex-row-reverse" : "md:flex-row"} gap-12 items-center`}>
+    <div className={`flex flex-col ${reverse ? "md:flex-row-reverse" : "md:flex-row"} gap-12 md:gap-16 items-stretch`}>
       <div className="w-full md:w-1/2">
-        <Image
-          src={image.src}
-          alt={image.alt}
-          width={image.width || 250}
-          height={image.height || 250}
-          className="w-full h-auto rounded-lg"
-        />
+        <div className="h-full w-full">
+          <Image
+            src={image.src}
+            alt={image.alt}
+            width={image.width || 600}
+            height={image.height || 600}
+            className="w-full h-full object-cover rounded-lg"
+          />
+        </div>
       </div>
-      <div className="w-full md:w-1/2">
-        <h2 className="text-h2 md:text-h2-tablet mb-6">{title}</h2>
+      <div className="w-full md:w-1/2 flex flex-col justify-center">
+        <h2 className="text-h2 md:text-h2-tablet mb-6 text-primary leading-tight">{title}</h2>
         {children}
         {button && (
           button.href ? (
-            <Button variant="default" className="mt-6" asChild>
+            <Button variant="default" className="mt-8 w-fit bg-accent text-primary hover:bg-secondary" asChild>
               <Link href={button.href}>{button.label}</Link>
             </Button>
           ) : (
-            <Button variant="default" className="mt-6" onClick={button.onClick}>
+            <Button variant="default" className="mt-8 w-fit bg-accent text-primary hover:bg-secondary" onClick={button.onClick}>
               {button.label}
             </Button>
           )

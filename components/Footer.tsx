@@ -47,12 +47,12 @@ export default function Footer() {
 
   return (
     <footer className="bg-main-bg/50 relative">
-      <div className="container mx-auto px-5 py-20 md:py-10">
-        <div className="flex flex-col md:flex-row justify-between gap-16 md:gap-12 mb-16 md:mb-12">
+      <div className="container py-20 md:py-10">
+        <div className="flex flex-col md:flex-row justify-between gap-14 md:gap-12 mb-16 md:mb-12">
           {/* Logo and Newsletter */}
           <div className="w-full md:w-[23.68%]">
             <Image
-              src="https://narakido.tokotema.xyz/wp-content/uploads/2024/11/Logo-1.png"
+              src="/assets/Logos/logo-footer.png"
               alt="Narakido Logo"
               width={181}
               height={44}
@@ -67,16 +67,16 @@ export default function Footer() {
           </div>
 
           {/* Links Sections */}
-          <div className="w-full md:w-[53.68%] flex flex-col md:flex-row justify-between gap-10 md:gap-8">
+          <div className="w-full md:w-[55%] grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 md:gap-6">
             {/* Explore */}
-            <div className="w-full md:w-[64%]">
-              <h6 className="text-h6 text-primary mb-4 text-center md:text-left">Explore</h6>
+            <div>
+              <h6 className="text-h6 text-primary mb-4 font-medium">Explore</h6>
               <ul className="flex flex-col gap-2.5">
                 {exploreLinks.map((link) => (
                   <li key={link.href}>
                     <Link
                       href={link.href}
-                      className="text-body2 text-text hover:text-secondary transition-colors text-center md:text-left"
+                      className="text-body2 text-text hover:text-secondary transition-colors"
                     >
                       {link.label}
                     </Link>
@@ -86,14 +86,14 @@ export default function Footer() {
             </div>
 
             {/* Customer Care */}
-            <div className="w-full md:w-auto">
-              <h6 className="text-h6 text-primary mb-4 text-center md:text-left">Customer Care</h6>
+            <div>
+              <h6 className="text-h6 text-primary mb-4 font-medium">Customer Care</h6>
               <ul className="flex flex-col gap-2.5">
                 {customerCareLinks.map((link) => (
                   <li key={link.href}>
                     <Link
                       href={link.href}
-                      className="text-body2 text-text hover:text-secondary transition-colors text-center md:text-left"
+                      className="text-body2 text-text hover:text-secondary transition-colors"
                     >
                       {link.label}
                     </Link>
@@ -103,14 +103,14 @@ export default function Footer() {
             </div>
 
             {/* Quick Links */}
-            <div className="w-full md:w-auto">
-              <h6 className="text-h6 text-primary mb-4 text-center md:text-left">Quick Links</h6>
+            <div>
+              <h6 className="text-h6 text-primary mb-4 font-medium">Quick Links</h6>
               <ul className="flex flex-col gap-2.5">
                 {quickLinks.map((link) => (
                   <li key={link.href}>
                     <Link
                       href={link.href}
-                      className="text-body2 text-text hover:text-secondary transition-colors text-center md:text-left"
+                      className="text-body2 text-text hover:text-secondary transition-colors"
                     >
                       {link.label}
                     </Link>
@@ -120,14 +120,14 @@ export default function Footer() {
             </div>
 
             {/* Follow Us */}
-            <div className="w-full md:w-[64%]">
-              <h6 className="text-h6 text-primary mb-4 text-center md:text-left">Follow Us</h6>
+            <div>
+              <h6 className="text-h6 text-primary mb-4 font-medium">Follow Us</h6>
               <ul className="flex flex-col gap-2.5">
                 {socialLinks.map((link) => (
                   <li key={link.href}>
                     <Link
                       href={link.href}
-                      className="text-body2 text-text hover:text-secondary transition-colors text-center md:text-left"
+                      className="text-body2 text-text hover:text-secondary transition-colors"
                     >
                       {link.label}
                     </Link>

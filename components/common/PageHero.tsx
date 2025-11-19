@@ -22,7 +22,7 @@ export default function PageHero({ title, breadcrumbs, backgroundImage }: PageHe
         backgroundPosition: "center center",
       }}
     >
-      <div className="container mx-auto px-5 py-30 md:py-10">
+      <div className="container py-30 md:py-10">
         <div className="flex flex-col gap-3">
           <h1 className="text-center text-h1 md:text-h1-tablet">{title}</h1>
           <Breadcrumb items={breadcrumbs} />

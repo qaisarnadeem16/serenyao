@@ -21,11 +21,13 @@ export default function ProductCard({
   showCartButton = false,
   imageBaseUrl = "https://narakido.tokotema.xyz/wp-content/uploads/2024/11/",
 }: ProductCardProps) {
+  const imageSrc = image.startsWith("/") ? image : `${imageBaseUrl}${image}`;
+  
   return (
     <div className="bg-white rounded-lg overflow-hidden shadow-sm hover:shadow-md transition-shadow">
       <div className="aspect-square relative">
         <Image
-          src={`${imageBaseUrl}${image}`}
+          src={imageSrc}
           alt={name}
           fill
           className="object-cover"

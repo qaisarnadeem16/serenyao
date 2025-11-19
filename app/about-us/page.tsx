@@ -6,7 +6,7 @@ import FeatureCard from "@/components/common/FeatureCard";
 const features = [
   {
     icon: {
-      src: "https://narakido.tokotema.xyz/wp-content/uploads/2024/11/Puzzle.png",
+      src: "/assets/Banner_gesamt.29.9_/23.png",
       alt: "Puzzle",
     },
     title: "Quality",
@@ -14,7 +14,7 @@ const features = [
   },
   {
     icon: {
-      src: "https://narakido.tokotema.xyz/wp-content/uploads/2024/11/Blocks.png",
+      src: "/assets/Banner_gesamt.29.9_/12.png",
       alt: "Blocks",
     },
     title: "Education",
@@ -22,7 +22,7 @@ const features = [
   },
   {
     icon: {
-      src: "https://narakido.tokotema.xyz/wp-content/uploads/2024/11/Rocket.png",
+      src: "/assets/Banner_gesamt.29.9_/53.png",
       alt: "Rocket",
     },
     title: "Innovation",
@@ -46,7 +46,7 @@ export default function AboutUs() {
           <ImageTextSection
             title="Our Story"
             image={{
-              src: "https://narakido.tokotema.xyz/wp-content/uploads/2024/11/image-9.jpg",
+              src: "/assets/Banner_gesamt.29.9_/66.png",
               alt: "About us",
               width: 250,
               height: 250,
@@ -66,7 +66,7 @@ export default function AboutUs() {
           <ImageTextSection
             title="Our Mission"
             image={{
-              src: "https://narakido.tokotema.xyz/wp-content/uploads/2024/11/image-10.jpg",
+              src: "/assets/Banner_gesamt.29.9_/60.png",
               alt: "Our mission",
               width: 250,
               height: 250,
