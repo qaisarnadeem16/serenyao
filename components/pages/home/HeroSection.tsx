@@ -51,11 +51,11 @@ export default function HeroSection({
               </span>
             </div>
           )}
-          <h1 className="mt-0 mb-6 text-h1 md:text-h1-tablet leading-tight">{title}</h1>
+          <h1 className="mt-0 mb-6 text-h1 md:text-h1-tablet leading-relaxed max-w-xl">{title}</h1>
           <p className="text-body2 text-text mt-0 mb-8 leading-relaxed">{description}</p>
           <div className="flex flex-col sm:flex-row gap-2.5 mt-6">
             {primaryButton.href ? (
-              <Button variant="default" className="bg-accent text-primary hover:bg-secondary" asChild>
+              <Button variant="default" className="bg-accent text-primary hover:bg-purple" asChild>
                 <Link href={primaryButton.href}>{primaryButton.label}</Link>
               </Button>
             ) : (
@@ -69,7 +69,7 @@ export default function HeroSection({
             )}
             {secondaryButton && (
               secondaryButton.href ? (
-                <Button variant="default" className="bg-purple text-white hover:bg-soft-purple" asChild>
+                <Button variant="default" className="bg-purple text-white hover:bg-accent" asChild>
                   <Link href={secondaryButton.href}>
                     {secondaryButton.label || (secondaryButton.icon && secondaryButton.icon) || <ArrowRight className="h-5 w-5" />}
                   </Link>
@@ -77,7 +77,7 @@ export default function HeroSection({
               ) : (
                 <Button
                   variant="default"
-                  className="bg-purple text-white hover:bg-soft-purple"
+                  className="bg-purple text-white hover:bg-accent"
                   onClick={secondaryButton.onClick}
                 >
                   {secondaryButton.label || (secondaryButton.icon && secondaryButton.icon) || <ArrowRight className="h-5 w-5" />}

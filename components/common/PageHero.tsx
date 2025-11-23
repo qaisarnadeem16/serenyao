@@ -16,13 +16,14 @@ export default function PageHero({ title, breadcrumbs, backgroundImage }: PageHe
 
   return (
     <section
-      className="relative bg-cover bg-center bg-no-repeat py-30 px-0"
+      className="relative bg-cover bg-center bg-no-repeat px-0"
       style={{
         backgroundImage: `url('${backgroundImage || defaultBackground}')`,
         backgroundPosition: "center center",
+        height: "350px",
       }}
     >
-      <div className="container py-30 md:py-10">
+      <div className="container h-full flex items-center justify-center py-30 md:py-10">
         <div className="flex flex-col gap-3">
           <h1 className="text-center text-h1 md:text-h1-tablet">{title}</h1>
           <Breadcrumb items={breadcrumbs} />

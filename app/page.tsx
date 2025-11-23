@@ -1,29 +1,25 @@
 import HeroSection from "@/components/pages/home/HeroSection";
-import SectionContainer from "@/components/common/SectionContainer";
-import SectionHeader from "@/components/common/SectionHeader";
-import ProductsGrid from "@/components/common/ProductsGrid";
 import CTASection from "@/components/common/CTASection";
-import ImageTextSection from "@/components/common/ImageTextSection";
-import { Button } from "@/components/ui/button";
-import Link from "next/link";
+import ExpertsTestimonialSection from "@/components/pages/home/ExpertsTestimonialSection";
+import FeaturesSection from "@/components/pages/home/FeaturesSection";
+import StoriesSection from "@/components/pages/home/StoriesSection";
+import ProductShowcaseSection from "@/components/pages/home/ProductShowcaseSection";
+import TrustedPartnerSection from "@/components/pages/home/TrustedPartnerSection";
+import DiscoverStoriesSection from "@/components/pages/home/DiscoverStoriesSection";
+import TestimonialsSection from "@/components/pages/home/TestimonialsSection";
+import BringStoriesHomeSection from "@/components/pages/home/BringStoriesHomeSection";
 import { ArrowRight } from "lucide-react";
-
-const featuredProducts = [
-  { id: 1, name: "Book Title 1", image: "/assets/Banner_gesamt.29.9_/27.png", author: "Author Name", price: "$19.99" },
-  { id: 2, name: "Book Title 2", image: "/assets/Banner_gesamt.29.9_/28.png", author: "Author Name", price: "$17.99" },
-  { id: 3, name: "Book Title 3", image: "/assets/Banner_gesamt.29.9_/35.png", author: "Author Name", price: "$21.99" },
-];
 
 export default function Home() {
   return (
-    <div className="flex flex-col gap-24 md:gap-18 py-[130px] md:py-8">
+    <div className="flex flex-col gap-24 md:gap-18">
       {/* Hero Section */}
-        <HeroSection
+      <HeroSection
         badge="Nurture the Love of Reading"
         title="Enchanting Stories for Every Little Dreamer"
         description="Justo varius platea volutpat rhoncus. Rhoncus leo odio nullam sit nibh. In ac mattis a gravida. Nec quam enim tempus feugiat sodales ut. Id aenean"
         primaryButton={{ label: "Start Shopping", href: "/products" }}
-        secondaryButton={{ icon: <ArrowRight className="h-5 w-5" />, href: "/products" }}
+        secondaryButton={{ icon: <ArrowRight className="h-5 w-5 text-black" />, href: "/products" }}
         image={[
           {
             src: "/assets/Image-1.jpg",
@@ -39,140 +35,284 @@ export default function Home() {
           },
         ]}
       />
-      
-      {/* Serenyao Collections - Image Left, Text Right */}
-      <SectionContainer>
-        <ImageTextSection
-          title="Calm. Color. Clarity."
-          image={{
-            src: "/assets/Banner_gesamt.29.9_/46.png",
-            alt: "Serenyao Collections",
-            width: 508,
-            height: 572,
-          }}
-        >
-          <>
-            <p className="text-body1 text-text mb-4">
-              Explore books and audios that bring stillness, imagination, and gentle joy into everyday life.
-            </p>
-            <div className="flex flex-col lg:flex-row gap-2.5 mt-8">
-              <Button variant="default" className="bg-accent text-primary hover:bg-secondary" asChild>
-                <Link href="#kids-collection">Explore Kids Collection</Link>
-              </Button>
-              <Button variant="default" className="bg-purple text-white hover:bg-soft-purple" asChild>
-                <Link href="#mindfulness-collection">Discover Mindfulness Books</Link>
-              </Button>  
-            </div>
-            <div className="mt-8">
-            <Button variant="default" className="bg-purple text-white hover:bg-soft-purple" asChild>
-                <Link href="#audios">Listen to Healing Audios</Link>
-            </Button>
-              </div>
-          </>
-        </ImageTextSection>
-      </SectionContainer>
 
-      {/* Serenyao Kids Collection - Text Left, Image Right */}
-      <SectionContainer id="kids-collection">
-        <ImageTextSection
-          title="For little dreamers and young artists."
-          image={{
-            src: "/assets/Banner_gesamt.29.9_/16.png",
-            alt: "Serenyao Kids Collection",
-            width: 600,
-            height: 600,
-          }}
-          button={{ label: "Explore Kids Collection", href: "/collections/kids" }}
-          reverse
-        >
-          <>
-            <p className="text-body1 text-text mb-4">
-              Lovingly designed books that spark imagination, calm, and color.
-            </p>
-            <p className="text-body1 text-text mb-4">
-              Each Serenyao Kids book is made to bring calm focus and happy creativity. Simple lines, kind stories, and a touch of magic — made for children aged 3–8.
-            </p>
-            <div className="flex flex-col gap-2 mt-6">
-              <p className="text-body2 text-text">Coloring & Activity Books</p>
-              <p className="text-body2 text-text"> Storybooks (Pebbel & Friends)</p>
-              <p className="text-body2 text-text"> Kids Music & Audio Stories</p>
-            </div>
-          </>
-        </ImageTextSection>
-      </SectionContainer>
+      {/* Experts & Testimonial Section */}
+      <ExpertsTestimonialSection
+        title="Handpicked by Experts in Children's Literature"
+        experts={[
+          {
+            name: "Expert 1",
+            image: "/assets/images/testimonial-1.jpg",
+            alt: "Children's literature expert",
+          },
+          {
+            name: "Expert 2",
+            image: "/assets/images/testimonial-2.jpg",
+            alt: "Children's literature expert",
+          },
+          {
+            name: "Expert 3",
+            image: "/assets/images/testimonial-3.jpg",
+            alt: "Children's literature expert",
+          },
+        ]}
+        testimonial={{
+          rating: 5,
+          text: "Vulputate in quam lobortis lobortis praesent convallis mauris. At tellus libero egestas sed facilisis lectus. Ut lobortis sit habitasse convallis quis.",
+          author: {
+            name: "Lana Denesik",
+            role: "Parent",
+            image: "/assets/images/testimonial-1.jpg",
+            alt: "Lana Denesik",
+          },
+        }}
+      />
 
-      {/* Serenyao Mindfulness Collection - Image Left, Text Right */}
-      <SectionContainer id="mindfulness-collection" className="bg-main-bg py-30 px-0 md:py-16">
-        <ImageTextSection
-          title="Find calm in color and clarity."
-          image={{
-            src: "/assets/Banner_gesamt.29.9_/49.png",
-            alt: "Serenyao Mindfulness Collection",
-            width: 600,
-            height: 600,
-          }}
-          button={{ label: "Explore Mindfulness Collection", href: "/collections/mindfulness" }}
-        >
-          <>
-            <p className="text-body1 text-text mb-4">
-              Journals and coloring books to help you slow down and reconnect with yourself.
-            </p>
-            <p className="text-body1 text-text mb-4">
-              The Serenyao Mindfulness Collection brings together simple tools for a quieter mind. Every page helps you breathe, reflect, and return to yourself.
-            </p>
-            <div className="flex flex-col gap-2 mt-6">
-              <p className="text-body2 text-text">Mindfulness Journals</p>
-              <p className="text-body2 text-text">Calm & Joy Coloring Books</p>
-              <p className="text-body2 text-text">Self-Reflection Workbooks</p>
-            </div>
-          </>
-        </ImageTextSection>
-      </SectionContainer>
+      {/* Features Section - Full Width with Purple Background */}
+      <FeaturesSection
+        image={{
+          src: "/assets/images/feature-img.png",
+          alt: "Child reading book",
+          width: 500,
+          height: 600,
+        }}
+        backgroundImage={{
+          src: "/assets/images/Feature-BG.jpg",
+          alt: "Background pattern",
+        }}
+        features={[
+          {
+            title: "Secure Online Payment",
+            description: "Vulputate in quam lobortis lobortis praesent convallis mauris. At tellus libero egestas sed facilisis lectus. Ut lobortis sit habitasse convallis quis.",
+          },
+          {
+            title: "Free Shipping on Orders Over $50",
+            description: "Vulputate in quam lobortis lobortis praesent convallis mauris. At tellus libero egestas sed facilisis lectus. Ut lobortis sit habitasse convallis quis.",
+          },
+          {
+            title: "24/7 Customer Support",
+            description: "Vulputate in quam lobortis lobortis praesent convallis mauris. At tellus libero egestas sed facilisis lectus. Ut lobortis sit habitasse convallis quis.",
+          },
+        ]}
+      />
 
-      {/* Serenyao Audios - Text Left, Image Right */}
-      <SectionContainer id="audios">
-        <ImageTextSection
-          title="Listen. Breathe. Restore."
-          image={{
-            src: "/assets/Banner_gesamt.29.9_/48.png",
-            alt: "Serenyao Audios",
-            width: 600,
-            height: 600,
-          }}
-          button={{ label: "Listen to Healing Audios", href: "/collections/audios" }}
-          reverse
-        >
-          <>
-            <p className="text-body1 text-text mb-4">
-              Gentle audio journeys for sleep, healing, and mindful living.
-            </p>
-            <p className="text-body1 text-text mb-4">
-              Serenyao Audios are crafted to bring the body into harmony and the mind into peace. Explore guided meditations, sleep stories, and gentle soundscapes.
-            </p>
-            <div className="flex flex-col gap-2 mt-6">
-              <p className="text-body2 text-text">Sleep Stories</p>
-              <p className="text-body2 text-text"> Meditations</p>
-              <p className="text-body2 text-text">Healing Music & Frequencies</p>
-            </div>
-          </>
-        </ImageTextSection>
-      </SectionContainer>
+      {/* Stories Section */}
+      <StoriesSection
+        badge="WHERE IMAGINATION MEETS EDUCATION"
+        mainTitle="Enchanting Stories for Every Little Dreamer"
+        stories={[
+          {
+            image: {
+              src: "/assets/images/stories-1.jpg",
+              alt: "Children's book cover",
+              width: 250,
+              height: 250,
+            },
+            title: "Diverse Stories for Every Child",
+            description: "Vulputate in quam lobortis lobortis praesent convallis mauris. At tellus libero egestas sed facilisis lectus. Ut lobortis sit habitasse convallis quis.",
+          },
+          {
+            image: {
+              src: "/assets/images/stories-2.jpg",
+              alt: "Children's book cover",
+              width: 250,
+              height: 250,
+            },
+            title: "Books That Educate & Entertain",
+            description: "Vulputate in quam lobortis lobortis praesent convallis mauris. At tellus libero egestas sed facilisis lectus. Ut lobortis sit habitasse convallis quis.",
+          },
+        ]}
+        mainImage={{
+          src: "/assets/images/stories-3.jpg",
+          alt: "Child reading book",
+          width: 400,
+          height: 600,
+        }}
+      />
 
-      {/* Featured Books Section - Previous Section */}
-      <SectionContainer>
-        <SectionHeader
-          title="Featured Books"
-          description="Discover our handpicked selection of enchanting stories"
-        />
-        <ProductsGrid products={featuredProducts} columns={3} />
-      </SectionContainer>
-
-      {/* CTA Section - Previous Section */}
-      <CTASection
-        title="Start Your Reading Journey Today"
-        description="Join thousands of families who have discovered the joy of reading together"
-        buttonLabel="Explore Our Collection"
+      {/* Product Showcase Section */}
+      <ProductShowcaseSection
+        badge="BOOKS THEY'LL TREASURE"
+        title="Handpicked Stories for Every Little Reader"
+        products={[
+          {
+            id: 1,
+            name: "Whiskers' Big Day Out",
+            image: "/assets/images/product-1.jpg",
+            price: "$18.00",
+          },
+          {
+            id: 2,
+            name: "The Explorer of the Ice Age",
+            image: "/assets/images/product-2.jpg",
+            price: "$18.00",
+          },
+          {
+            id: 3,
+            name: "Jungle Journey",
+            image: "/assets/images/product-3.jpg",
+            price: "$18.00",
+          },
+        ]}
+        buttonLabel="Browse All Collections"
         buttonHref="/collections"
+      />
+
+      {/* Trusted Partner Section */}
+      <TrustedPartnerSection
+        badge="WHERE STORIES COME TO LIFE"
+        title="Your Trusted Partner in Fostering the Love of Reading"
+        image={{
+          src: "/assets/images/trusted-partner.jpg",
+          alt: "Girl reading book",
+          width: 500,
+          height: 600,
+        }}
+        features={[
+          {
+            title: "Educational Focus",
+            description: "Vulputate in quam lobortis lobortis praesent convallis mauris. At tellus libero egestas sed facilisis lectus. Ut lobortis sit habitasse convallis quis.",
+          },
+          {
+            title: "Personalized Recommendations",
+            description: "Vulputate in quam lobortis lobortis praesent convallis mauris. At tellus libero egestas sed facilisis lectus. Ut lobortis sit habitasse convallis quis.",
+          },
+          {
+            title: "Safe & Secure Shopping",
+            description: "Vulputate in quam lobortis lobortis praesent convallis mauris. At tellus libero egestas sed facilisis lectus. Ut lobortis sit habitasse convallis quis.",
+          },
+        ]}
+        buttonLabel="Discover Our Difference"
+        buttonHref="/about-us"
+      />
+
+      {/* Discover Stories Section */}
+      <DiscoverStoriesSection
+        badge="TODAY'S FAVORITES"
+        title="Discover the Stories Kids Can't Stop Talking About"
+        stories={[
+          {
+            id: 1,
+            title: "The Magical Forest",
+            image: {
+              src: "/assets/images/discover-1.jpg",
+              alt: "The Magical Forest book",
+              width: 400,
+              height: 300,
+            },
+          },
+          {
+            id: 2,
+            title: "The Alphabet Kingdom",
+            image: {
+              src: "/assets/images/discover-2.jpg",
+              alt: "The Alphabet Kingdom book",
+              width: 400,
+              height: 300,
+            },
+          },
+          {
+            id: 3,
+            title: "Jungle Journey",
+            image: {
+              src: "/assets/images/discover-3.jpg",
+              alt: "Jungle Journey book",
+              width: 400,
+              height: 300,
+            },
+          },
+          {
+            id: 4,
+            title: "My First Adventure",
+            image: {
+              src: "/assets/images/discover-4.jpg",
+              alt: "My First Adventure book",
+              width: 400,
+              height: 300,
+            },
+          },
+        ]}
+      />
+
+      {/* Testimonials Section */}
+      <TestimonialsSection
+        badge="WHAT PARENTS ARE SAYING"
+        title="Real Stories from Families Who Love Narakido"
+        testimonials={[
+          {
+            id: 1,
+            quote: "An absolute treasure trove for young readers!",
+            author: "SARAH L.",
+            rating: 5,
+            image: {
+              src: "/assets/images/testimonial-1.jpg",
+              alt: "Sarah L.",
+              width: 64,
+              height: 64,
+            },
+          },
+          {
+            id: 2,
+            quote: "The perfect place to find meaningful books for children",
+            author: "MICHAEL R",
+            rating: 5,
+            image: {
+              src: "/assets/images/testimonial-2.jpg",
+              alt: "Michael R",
+              width: 64,
+              height: 64,
+            },
+          },
+          {
+            id: 3,
+            quote: "A delightful experience from start to finish.",
+            author: "LINDA M",
+            rating: 5,
+            image: {
+              src: "/assets/images/testimonial-3.jpg",
+              alt: "Linda M",
+              width: 64,
+              height: 64,
+            },
+          },
+        ]}
+        mainImage={{
+          src: "/assets/images/testimonial-kids.jpg",
+          alt: "Children reading together",
+          width: 600,
+          height: 500,
+        }}
+        buttonLabel="See All Testimonials"
+        buttonHref="/testimonials"
+      />
+
+      {/* Bring Stories Home Section */}
+      <BringStoriesHomeSection
+        badge="BRING STORIES HOME"
+        title="Explore Books That Make Reading Magical for Every Child"
+        image={{
+          src: "/assets/images/stories-home.png",
+          alt: "Boy reading book",
+          width: 500,
+          height: 600,
+        }}
+        backgroundImage={{
+          src: "/assets/images/Feature-BG.jpg",
+          alt: "Purple background",
+        }}
+        features={[
+          {
+            title: "Trusted by parents and educators.",
+          },
+          {
+            title: "Books that inspire creativity and learning.",
+          },
+          {
+            title: "Eco-friendly packaging and delivery.",
+          },
+        ]}
+        buttonLabel="Start Shopping Now"
+        buttonHref="/products"
       />
     </div>
   );

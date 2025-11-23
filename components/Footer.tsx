@@ -50,9 +50,9 @@ export default function Footer() {
       <div className="container py-20 md:py-10">
         <div className="flex flex-col md:flex-row justify-between gap-14 md:gap-12 mb-16 md:mb-12">
           {/* Logo and Newsletter */}
-          <div className="w-full md:w-[23.68%]">
+          <div className="w-full md:w-[30%]">
             <Image
-              src="/assets/Logos/logo-footer.png"
+              src="/assets/Logos/Logo-Narakido-2.png"
               alt="Narakido Logo"
               width={181}
               height={44}
