@@ -1,25 +1,25 @@
 import HeroSection from "@/components/pages/home/HeroSection";
-import CTASection from "@/components/common/CTASection";
-import ExpertsTestimonialSection from "@/components/pages/home/ExpertsTestimonialSection";
+import CollectionPathsSection from "@/components/pages/home/CollectionPathsSection";
 import FeaturesSection from "@/components/pages/home/FeaturesSection";
-import StoriesSection from "@/components/pages/home/StoriesSection";
 import ProductShowcaseSection from "@/components/pages/home/ProductShowcaseSection";
-import TrustedPartnerSection from "@/components/pages/home/TrustedPartnerSection";
+import StoriesSection from "@/components/pages/home/StoriesSection";
 import DiscoverStoriesSection from "@/components/pages/home/DiscoverStoriesSection";
 import TestimonialsSection from "@/components/pages/home/TestimonialsSection";
 import BringStoriesHomeSection from "@/components/pages/home/BringStoriesHomeSection";
 import { ArrowRight } from "lucide-react";
+import TrustedPartnerSection from "@/components/pages/home/TrustedPartnerSection";
 
 export default function Home() {
   return (
     <div className="flex flex-col gap-24 md:gap-18">
       {/* Hero Section */}
       <HeroSection
-        badge="Nurture the Love of Reading"
-        title="Enchanting Stories for Every Little Dreamer"
-        description="Justo varius platea volutpat rhoncus. Rhoncus leo odio nullam sit nibh. In ac mattis a gravida. Nec quam enim tempus feugiat sodales ut. Id aenean"
-        primaryButton={{ label: "Start Shopping", href: "/products" }}
-        secondaryButton={{ icon: <ArrowRight className="h-5 w-5 text-black" />, href: "/products" }}
+        badge="Books That Bring Calm, Creativity & Joy."
+        secondaryBadge="Cozy • Creative • Mindful"
+        title="Creating Calm, Wonder & Creativity for All Ages."
+        description="Beautiful books and mindful creations made to inspire calm, creativity and joy — for kids, teens and adults."
+        primaryButton={{ label: "Start Exploring", href: "/products" }}
+        secondaryButton={{ label: "Browse Collections", icon: <ArrowRight className="h-5 w-5" />, href: "/collections" }}
         image={[
           {
             src: "/assets/Image-1.jpg",
@@ -36,40 +36,53 @@ export default function Home() {
         ]}
       />
 
-      {/* Experts & Testimonial Section */}
-      <ExpertsTestimonialSection
-        title="Handpicked by Experts in Children's Literature"
-        experts={[
+      {/* Collection Paths Section */}
+      <CollectionPathsSection
+        badge="Choose Your Cozy Path"
+        paths={[
           {
-            name: "Expert 1",
-            image: "/assets/images/testimonial-1.jpg",
-            alt: "Children's literature expert",
+            id: 1,
+            title: "Kids Dreamland",
+            ageRange: "1–8 years",
+            features: [
+              "Cute & cozy coloring books",
+              "Early reading & scribble books",
+              "First creativity experiences",
+            ],
+            ctaLabel: "Explore Kids Books",
+            ctaHref: "/collections/kids",
           },
           {
-            name: "Expert 2",
-            image: "/assets/images/testimonial-2.jpg",
-            alt: "Children's literature expert",
+            id: 2,
+            title: "Teens & Adults Cozy Coloring",
+            ageRange: "9+ years",
+            features: [
+              "Stress-relief coloring",
+              "Cozy cute themes",
+              "Calming premium designs",
+            ],
+            ctaLabel: "Explore Cozy Coloring",
+            ctaHref: "/collections/coloring",
           },
           {
-            name: "Expert 3",
-            image: "/assets/images/testimonial-3.jpg",
-            alt: "Children's literature expert",
+            id: 3,
+            title: "Mindfulness & Journals",
+            ageRange: "All ages",
+            features: [
+              "Gratitude Journals",
+              "Self-Healing, Calm & Reflection",
+              "Gentle daily practices",
+            ],
+            ctaLabel: "Explore Mindfulness",
+            ctaHref: "/collections/mindfulness",
           },
         ]}
-        testimonial={{
-          rating: 5,
-          text: "Vulputate in quam lobortis lobortis praesent convallis mauris. At tellus libero egestas sed facilisis lectus. Ut lobortis sit habitasse convallis quis.",
-          author: {
-            name: "Lana Denesik",
-            role: "Parent",
-            image: "/assets/images/testimonial-1.jpg",
-            alt: "Lana Denesik",
-          },
-        }}
       />
 
-      {/* Features Section - Full Width with Purple Background */}
+      {/* Features Section - Why Serenyao Works */}
       <FeaturesSection
+        badge="Why Serenyao Works"
+        title="Feel-Good Books Made With Heart & Science."
         image={{
           src: "/assets/images/feature-img.png",
           alt: "Child reading book",
@@ -82,24 +95,26 @@ export default function Home() {
         }}
         features={[
           {
-            title: "Secure Online Payment",
-            description: "Vulputate in quam lobortis lobortis praesent convallis mauris. At tellus libero egestas sed facilisis lectus. Ut lobortis sit habitasse convallis quis.",
+            title: "Mindfully Crafted",
+            description: "Designs made to calm the mind & spark creativity.",
           },
           {
-            title: "Free Shipping on Orders Over $50",
-            description: "Vulputate in quam lobortis lobortis praesent convallis mauris. At tellus libero egestas sed facilisis lectus. Ut lobortis sit habitasse convallis quis.",
+            title: "Kids-Safe & Parent-Trusted",
+            description: "Age-appropriate, warm & imagination-friendly.",
           },
           {
-            title: "24/7 Customer Support",
-            description: "Vulputate in quam lobortis lobortis praesent convallis mauris. At tellus libero egestas sed facilisis lectus. Ut lobortis sit habitasse convallis quis.",
+            title: "Stress-Relief for All Ages",
+            description: "Gentle creative pauses for busy minds.",
           },
         ]}
+        buttonLabel="Discover Our Difference"
+        buttonHref="/about-us"
       />
 
-      {/* Stories Section */}
+      {/* Education / Value Section */}
       <StoriesSection
-        badge="WHERE IMAGINATION MEETS EDUCATION"
-        mainTitle="Enchanting Stories for Every Little Dreamer"
+        badge="Where Creativity Meets Calm"
+        mainTitle="Books That Grow With You."
         stories={[
           {
             image: {
@@ -108,8 +123,8 @@ export default function Home() {
               width: 250,
               height: 250,
             },
-            title: "Diverse Stories for Every Child",
-            description: "Vulputate in quam lobortis lobortis praesent convallis mauris. At tellus libero egestas sed facilisis lectus. Ut lobortis sit habitasse convallis quis.",
+            title: "Supports Emotional Calm",
+            description: "Whether you're a parent, a creative teen or an adult looking for quiet moments — Serenyao brings calm, clarity and joy into your everyday life.",
           },
           {
             image: {
@@ -118,8 +133,18 @@ export default function Home() {
               width: 250,
               height: 250,
             },
-            title: "Books That Educate & Entertain",
-            description: "Vulputate in quam lobortis lobortis praesent convallis mauris. At tellus libero egestas sed facilisis lectus. Ut lobortis sit habitasse convallis quis.",
+            title: "Boosts Creativity & Focus",
+            description: "Whether you're a parent, a creative teen or an adult looking for quiet moments — Serenyao brings calm, clarity and joy into your everyday life.",
+          },
+          {
+            image: {
+              src: "/assets/images/stories-1.jpg",
+              alt: "Children's book cover",
+              width: 250,
+              height: 250,
+            },
+            title: "Screen-Free Quality Time",
+            description: "Whether you're a parent, a creative teen or an adult looking for quiet moments — Serenyao brings calm, clarity and joy into your everyday life.",
           },
         ]}
         mainImage={{
@@ -128,12 +153,14 @@ export default function Home() {
           width: 400,
           height: 600,
         }}
+        buttonLabel="Learn More"
+        buttonHref="/about-us"
       />
 
-      {/* Product Showcase Section */}
+      {/* Featured Collections Section */}
       <ProductShowcaseSection
-        badge="BOOKS THEY'LL TREASURE"
-        title="Handpicked Stories for Every Little Reader"
+        badge="Handpicked for You"
+        title="Discover Your Next Favorite Book."
         products={[
           {
             id: 1,
@@ -158,8 +185,8 @@ export default function Home() {
         buttonHref="/collections"
       />
 
-      {/* Trusted Partner Section */}
-      <TrustedPartnerSection
+       {/* Trusted Partner Section */}
+       <TrustedPartnerSection
         badge="WHERE STORIES COME TO LIFE"
         title="Your Trusted Partner in Fostering the Love of Reading"
         image={{
@@ -186,10 +213,10 @@ export default function Home() {
         buttonHref="/about-us"
       />
 
-      {/* Discover Stories Section */}
+      {/* Popular Right Now - Kids Picks */}
       <DiscoverStoriesSection
-        badge="TODAY'S FAVORITES"
-        title="Discover the Stories Kids Can't Stop Talking About"
+        badge="Popular Picks"
+        title="Books Kids Can't Stop Talking About"
         stories={[
           {
             id: 1,
@@ -232,12 +259,14 @@ export default function Home() {
             },
           },
         ]}
+        buttonLabel="See All Kids Books"
+        buttonHref="/collections/kids"
       />
 
-      {/* Testimonials Section */}
+      {/* Social Proof / Reviews Section */}
       <TestimonialsSection
-        badge="WHAT PARENTS ARE SAYING"
-        title="Real Stories from Families Who Love Narakido"
+        badge="Loved by Families & Creatives"
+        title="Real Stories from People Who Love Serenyao"
         testimonials={[
           {
             id: 1,
@@ -282,14 +311,14 @@ export default function Home() {
           width: 600,
           height: 500,
         }}
-        buttonLabel="See All Testimonials"
+        buttonLabel="Read More Reviews"
         buttonHref="/testimonials"
       />
 
-      {/* Bring Stories Home Section */}
+      {/* Secondary Hero - For Kids Only */}
       <BringStoriesHomeSection
-        badge="BRING STORIES HOME"
-        title="Explore Books That Make Reading Magical for Every Child"
+        badge="Kids Dream Bigger"
+        title="Explore Books That Make Reading Magical"
         image={{
           src: "/assets/images/stories-home.png",
           alt: "Boy reading book",
@@ -311,8 +340,8 @@ export default function Home() {
             title: "Eco-friendly packaging and delivery.",
           },
         ]}
-        buttonLabel="Start Shopping Now"
-        buttonHref="/products"
+        buttonLabel="Shop Kids Dreamland"
+        buttonHref="/collections/kids"
       />
     </div>
   );

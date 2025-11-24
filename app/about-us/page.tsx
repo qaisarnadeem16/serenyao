@@ -22,9 +22,10 @@ export default function AboutUs() {
 
       <SectionContainer>
         <div className="flex flex-col gap-20 md:gap-12">
+          {/* Education / Value Section */}
           <StoriesSection
-            badge="WHERE IMAGINATION MEETS EDUCATION"
-            mainTitle="Enchanting Stories for Every Little Dreamer"
+            badge="Where Creativity Meets Calm"
+            mainTitle="Books That Grow With You."
             stories={[
               {
                 image: {
@@ -33,8 +34,8 @@ export default function AboutUs() {
                   width: 250,
                   height: 250,
                 },
-                title: "Diverse Stories for Every Child",
-                description: "Vulputate in quam lobortis lobortis praesent convallis mauris. At tellus libero egestas sed facilisis lectus. Ut lobortis sit habitasse convallis quis.",
+                title: "Supports Emotional Calm",
+                description: "Whether you're a parent, a creative teen or an adult looking for quiet moments — Serenyao brings calm, clarity and joy into your everyday life.",
               },
               {
                 image: {
@@ -43,8 +44,18 @@ export default function AboutUs() {
                   width: 250,
                   height: 250,
                 },
-                title: "Books That Educate & Entertain",
-                description: "Vulputate in quam lobortis lobortis praesent convallis mauris. At tellus libero egestas sed facilisis lectus. Ut lobortis sit habitasse convallis quis.",
+                title: "Boosts Creativity & Focus",
+                description: "Whether you're a parent, a creative teen or an adult looking for quiet moments — Serenyao brings calm, clarity and joy into your everyday life.",
+              },
+              {
+                image: {
+                  src: "/assets/images/stories-1.jpg",
+                  alt: "Children's book cover",
+                  width: 250,
+                  height: 250,
+                },
+                title: "Screen-Free Quality Time",
+                description: "Whether you're a parent, a creative teen or an adult looking for quiet moments — Serenyao brings calm, clarity and joy into your everyday life.",
               },
             ]}
             mainImage={{
@@ -53,6 +64,8 @@ export default function AboutUs() {
               width: 400,
               height: 600,
             }}
+            buttonLabel="Learn More"
+            buttonHref="/about-us"
           />
         </div>
       </SectionContainer>

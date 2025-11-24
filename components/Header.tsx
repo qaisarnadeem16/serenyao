@@ -49,7 +49,7 @@ export default function Header() {
             <div className="w-[30%] md:w-[20%]">
               <Link href="/">
                 <Image
-                  src="/assets/Logos/Narakido-Logo.png"
+                  src="/assets/Logos/logo.png"
                   alt="Narakido Logo"
                   width={180}
                   height={44}

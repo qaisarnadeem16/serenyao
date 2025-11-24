@@ -1,4 +1,6 @@
 import Image from "next/image";
+import Link from "next/link";
+import { Button } from "@/components/ui/button";
 
 interface StoryCard {
   id: number;
@@ -15,6 +17,8 @@ interface DiscoverStoriesSectionProps {
   badge: string;
   title: string;
   stories: StoryCard[];
+  buttonLabel?: string;
+  buttonHref?: string;
   className?: string;
 }
 
@@ -22,6 +26,8 @@ export default function DiscoverStoriesSection({
   badge,
   title,
   stories,
+  buttonLabel,
+  buttonHref,
   className = "",
 }: DiscoverStoriesSectionProps) {
   return (
@@ -70,6 +76,20 @@ export default function DiscoverStoriesSection({
             </div>
           ))}
         </div>
+
+        {/* CTA Button */}
+        {buttonLabel && buttonHref && (
+          <div className="text-center mt-12">
+            <Button
+              variant="default"
+              size="lg"
+              className="bg-accent text-primary hover:bg-secondary"
+              asChild
+            >
+              <Link href={buttonHref}>{buttonLabel}</Link>
+            </Button>
+          </div>
+        )}
       </div>
     </section>
   );

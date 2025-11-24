@@ -5,6 +5,7 @@ import { ArrowRight } from "lucide-react";
 
 interface HeroSectionProps {
   badge?: string;
+  secondaryBadge?: string;
   title: string;
   description: string;
   primaryButton: {
@@ -33,6 +34,7 @@ interface HeroSectionProps {
 
 export default function HeroSection({
   badge,
+  secondaryBadge,
   title,
   description,
   primaryButton,
@@ -48,6 +50,13 @@ export default function HeroSection({
             <div className="inline-block mb-4">
               <span className="inline-block px-5 py-2.5 bg-secondary text-primary rounded-full text-subtitle font-medium uppercase">
                 {badge}
+              </span>
+            </div>
+          )}
+          {secondaryBadge && (
+            <div className="inline-block mb-4">
+              <span className="inline-block px-4 py-2 bg-accent text-primary rounded-full text-subtitle font-medium">
+                {secondaryBadge}
               </span>
             </div>
           )}
@@ -92,7 +101,7 @@ export default function HeroSection({
           {Array.isArray(image) ? (
             <div className="flex flex-row gap-[20px] w-full h-full">
               {image.map((img, index) => (
-                <div key={index} className="flex-1 h-[400px]">
+                <div key={index} className="flex-1 h-[600px]">
                   <Image 
                     src={img.src} 
                     alt={img.alt} 

@@ -1,4 +1,6 @@
 import Image from "next/image";
+import Link from "next/link";
+import { Button } from "@/components/ui/button";
 import { Check } from "lucide-react";
 
 interface Feature {
@@ -7,6 +9,8 @@ interface Feature {
 }
 
 interface FeaturesSectionProps {
+  badge?: string;
+  title?: string;
   image: {
     src: string;
     alt: string;
@@ -18,13 +22,19 @@ interface FeaturesSectionProps {
     alt: string;
   };
   features: Feature[];
+  buttonLabel?: string;
+  buttonHref?: string;
   className?: string;
 }
 
 export default function FeaturesSection({
+  badge,
+  title,
   image,
   backgroundImage,
   features,
+  buttonLabel,
+  buttonHref,
   className = "",
 }: FeaturesSectionProps) {
   return (
@@ -59,6 +69,20 @@ export default function FeaturesSection({
 
           {/* Right: Features */}
           <div className="w-full lg:w-3/5">
+            {/* Badge */}
+            {badge && (
+              <div className="inline-block mb-4">
+                <span className="inline-block px-5 py-2.5 bg-secondary text-primary rounded-full text-subtitle font-medium uppercase">
+                  {badge}
+                </span>
+              </div>
+            )}
+            {/* Title */}
+            {title && (
+              <h2 className="text-h2 md:text-h2-tablet text-white mb-8">
+                {title}
+              </h2>
+            )}
             <div className="flex flex-col gap-8 mb-10">
               {features.map((feature, index) => (
                 <div key={index} className="flex gap-4">
@@ -76,6 +100,17 @@ export default function FeaturesSection({
                 </div>
               ))}
             </div>
+            {/* CTA Button */}
+            {buttonLabel && buttonHref && (
+              <Button
+                variant="default"
+                size="lg"
+                className="bg-accent text-primary hover:bg-secondary"
+                asChild
+              >
+                <Link href={buttonHref}>{buttonLabel}</Link>
+              </Button>
+            )}
           </div>
         </div>
       </div>

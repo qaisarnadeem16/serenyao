@@ -1,4 +1,6 @@
 import Image from "next/image";
+import Link from "next/link";
+import { Button } from "@/components/ui/button";
 
 interface StoryItem {
   image: {
@@ -21,6 +23,8 @@ interface StoriesSectionProps {
     width: number;
     height: number;
   };
+  buttonLabel?: string;
+  buttonHref?: string;
   className?: string;
 }
 
@@ -29,6 +33,8 @@ export default function StoriesSection({
   mainTitle,
   stories,
   mainImage,
+  buttonLabel,
+  buttonHref,
   className = "",
 }: StoriesSectionProps) {
   return (
@@ -90,11 +96,25 @@ export default function StoriesSection({
                 alt={mainImage.alt}
                 width={mainImage.width}
                 height={mainImage.height}
-                className="w-full object-cover rounded-lg h-[520px]"
+                className="w-full object-cover rounded-lg h-[800px]"
               />
             </div>
           </div>
         </div>
+
+        {/* CTA Button */}
+        {buttonLabel && buttonHref && (
+          <div className="text-center mt-12">
+            <Button
+              variant="default"
+              size="lg"
+              className="bg-accent text-primary hover:bg-secondary"
+              asChild
+            >
+              <Link href={buttonHref}>{buttonLabel}</Link>
+            </Button>
+          </div>
+        )}
       </div>
     </section>
   );
