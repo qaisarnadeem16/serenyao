@@ -7,7 +7,7 @@ import Footer from "@/components/Footer";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "Narakido - Kids Bookstore",
+  title: "Serenyo - Kids Bookstore",
   description: "Enchanting Stories for Every Little Dreamer",
 };
 
