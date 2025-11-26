@@ -29,7 +29,7 @@ export default function ProductShowcaseSection({
   className = "",
 }: ProductShowcaseSectionProps) {
   return (
-    <section className={`py-20 md:py-16 ${className} bg-main-bg `}>
+    <section className={`py-20 md:py-16 ${className}`}>
       <div className="container">
         {/* Header */}
         <div className="text-center mb-12">

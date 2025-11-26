@@ -24,7 +24,7 @@ export default function LocationsSection({
   className = "",
 }: LocationsSectionProps) {
   return (
-    <section className={`py-20 md:py-16 ${className}`}>
+    <section className={` ${className}`}>
       <div className="container">
         {/* Header */}
         <div className="text-start mb-12">

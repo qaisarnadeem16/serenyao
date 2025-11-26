@@ -22,6 +22,7 @@ export default function AudiosCollection() {
           { label: "Collections", href: "/collections" },
           { label: "Healing Audios" },
         ]}
+        backgroundImage="/assets/images/Page-Header-BG.jpg"
       />
 
       <SectionContainer>

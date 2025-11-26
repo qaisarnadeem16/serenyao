@@ -21,6 +21,8 @@ interface TrustedPartnerSectionProps {
   buttonLabel: string;
   buttonHref?: string;
   className?: string;
+  sectionBackground?: "main-bg" | "none";
+  featuresBackground?: "main-bg" | "white";
 }
 
 export default function TrustedPartnerSection({
@@ -31,9 +33,14 @@ export default function TrustedPartnerSection({
   buttonLabel,
   buttonHref,
   className = "",
+  sectionBackground = "none",
+  featuresBackground = "main-bg",
 }: TrustedPartnerSectionProps) {
+  const sectionBgClass = sectionBackground === "main-bg" ? "bg-main-bg" : "";
+  const featuresBgClass = featuresBackground === "white" ? "bg-white" : "bg-main-bg";
+  
   return (
-    <section className={`py-20 md:py-16 ${className}`}>
+    <section className={`py-20 md:py-16 ${sectionBgClass} ${className}`}>
       <div className="container">
         {/* Header */}
         <div className="mb-12">
@@ -62,7 +69,7 @@ export default function TrustedPartnerSection({
 
           {/* Right: Features Panel */}
           <div className="w-full lg:w-3/5 flex flex-col justify-between gap-8">
-            <div className="bg-main-bg rounded-lg p-8 md:p-10">
+            <div className={`${featuresBgClass} rounded-lg p-8 md:p-10`}>
               <div className="flex flex-col gap-8 mb-8">
                 {features.map((feature, index) => (
                   <div key={index} className="flex gap-4">

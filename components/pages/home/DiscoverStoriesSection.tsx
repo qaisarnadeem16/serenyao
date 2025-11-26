@@ -20,6 +20,7 @@ interface DiscoverStoriesSectionProps {
   buttonLabel?: string;
   buttonHref?: string;
   className?: string;
+  background?: "main-bg" | "none";
 }
 
 export default function DiscoverStoriesSection({
@@ -29,9 +30,11 @@ export default function DiscoverStoriesSection({
   buttonLabel,
   buttonHref,
   className = "",
+  background = "main-bg",
 }: DiscoverStoriesSectionProps) {
+  const bgClass = background === "main-bg" ? "bg-main-bg" : "";
   return (
-    <section className={`py-16 md:py-12 bg-main-bg ${className}`}>
+    <section className={`py-16 md:py-12 ${bgClass} ${className}`}>
       <div className="container">
         {/* Header */}
         <div className="text-center mb-12">

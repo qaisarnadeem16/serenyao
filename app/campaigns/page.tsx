@@ -43,6 +43,7 @@ export default function Campaigns() {
           { label: "Home", href: "/" },
           { label: "Campaigns" },
         ]}
+        backgroundImage="/assets/images/Page-Header-BG.jpg"
       />
 
       <SectionContainer>

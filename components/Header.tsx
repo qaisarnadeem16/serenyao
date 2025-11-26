@@ -7,10 +7,25 @@ import { useState } from "react";
 import { usePathname } from "next/navigation";
 import { Menu, X } from "lucide-react";
 
-const menuItems = [
+interface MenuItem {
+  label: string;
+  href: string;
+  hasDropdown?: boolean;
+  dropdownItems?: { label: string; href: string }[];
+}
+
+const menuItems: MenuItem[] = [
   { label: "Home", href: "/" },
   { label: "About", href: "/about-us" },
-  { label: "Products", href: "/products" },
+  { 
+    label: "Products", 
+    href: "/products", 
+    hasDropdown: true, 
+    dropdownItems: [
+      { label: "Products", href: "/products" },
+      { label: "Product Details", href: "/products/product-details" },
+    ]
+  },
   { label: "Collections", href: "/collections" },
   { label: "Campaigns", href: "/campaigns" },
   { label: "Top Picks", href: "/top-picks" },
@@ -18,6 +33,7 @@ const menuItems = [
 
 export default function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [productsDropdownOpen, setProductsDropdownOpen] = useState(false);
   const pathname = usePathname();
 
   const isActive = (href: string) => {
@@ -62,17 +78,54 @@ export default function Header() {
             <nav className="hidden md:flex flex-row items-center justify-end gap-4 w-[55%]">
               <ul className="flex flex-row items-center gap-6">
                 {menuItems.map((item) => (
-                  <li key={item.href}>
-                    <Link
-                      href={item.href}
-                      className={`text-button transition-colors ${
-                        isActive(item.href)
-                          ? "text-secondary"
-                          : "text-white hover:text-secondary"
-                      }`}
-                    >
-                      {item.label}
-                    </Link>
+                  <li 
+                    key={item.href}
+                    className="relative"
+                    onMouseEnter={() => item.hasDropdown && setProductsDropdownOpen(true)}
+                    onMouseLeave={() => item.hasDropdown && setProductsDropdownOpen(false)}
+                  >
+                    {item.hasDropdown ? (
+                      <span
+                        className={`text-button transition-colors cursor-pointer ${
+                          isActive(item.href)
+                            ? "text-secondary"
+                            : "text-white hover:text-secondary"
+                        }`}
+                      >
+                        {item.label}
+                      </span>
+                    ) : (
+                      <Link
+                        href={item.href}
+                        className={`text-button transition-colors ${
+                          isActive(item.href)
+                            ? "text-secondary"
+                            : "text-white hover:text-secondary"
+                        }`}
+                      >
+                        {item.label}
+                      </Link>
+                    )}
+                    {/* Dropdown Menu */}
+                    {item.hasDropdown && productsDropdownOpen && (
+                      <div 
+                        className="absolute top-full left-0 pt-2 bg-transparent z-50"
+                        onMouseEnter={() => setProductsDropdownOpen(true)}
+                        onMouseLeave={() => setProductsDropdownOpen(false)}
+                      >
+                        <div className="bg-soft-purple shadow-lg py-2 min-w-[200px]">
+                          {item.dropdownItems?.map((dropdownItem) => (
+                            <Link
+                              key={dropdownItem.href}
+                              href={dropdownItem.href}
+                              className="block px-4 py-2 text-button text-white hover:text-secondary transition-colors"
+                            >
+                              {dropdownItem.label}
+                            </Link>
+                          ))}
+                        </div>
+                      </div>
+                    )}
                   </li>
                 ))}
               </ul>
@@ -103,17 +156,47 @@ export default function Header() {
               <ul className="flex flex-col gap-4">
                 {menuItems.map((item) => (
                   <li key={item.href}>
-                    <Link
-                      href={item.href}
-                      className={`text-button transition-colors block ${
-                        isActive(item.href)
-                          ? "text-secondary"
-                          : "text-white hover:text-secondary"
-                      }`}
-                      onClick={() => setMobileMenuOpen(false)}
-                    >
-                      {item.label}
-                    </Link>
+                    {item.hasDropdown ? (
+                      <div>
+                        <Link
+                          href={item.href}
+                          className={`text-button transition-colors block mb-2 ${
+                            isActive(item.href)
+                              ? "text-secondary"
+                              : "text-white hover:text-secondary"
+                          }`}
+                        >
+                          {item.label}
+                        </Link>
+                        {item.dropdownItems && (
+                          <ul className="ml-4 flex flex-col gap-2">
+                            {item.dropdownItems.map((dropdownItem) => (
+                              <li key={dropdownItem.href}>
+                                <Link
+                                  href={dropdownItem.href === "/products/[id]" ? "/products" : dropdownItem.href}
+                                  className="text-body2 text-white/80 hover:text-secondary transition-colors"
+                                  onClick={() => setMobileMenuOpen(false)}
+                                >
+                                  {dropdownItem.label}
+                                </Link>
+                              </li>
+                            ))}
+                          </ul>
+                        )}
+                      </div>
+                    ) : (
+                      <Link
+                        href={item.href}
+                        className={`text-button transition-colors block ${
+                          isActive(item.href)
+                            ? "text-secondary"
+                            : "text-white hover:text-secondary"
+                        }`}
+                        onClick={() => setMobileMenuOpen(false)}
+                      >
+                        {item.label}
+                      </Link>
+                    )}
                   </li>
                 ))}
                 <li>

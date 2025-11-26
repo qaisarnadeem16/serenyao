@@ -161,6 +161,7 @@ export default function Home() {
       <ProductShowcaseSection
         badge="Handpicked for You"
         title="Discover Your Next Favorite Book."
+        className="bg-main-bg"
         products={[
           {
             id: 1,

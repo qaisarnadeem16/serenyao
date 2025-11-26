@@ -11,6 +11,7 @@ export default function ContactUs() {
           { label: "Home", href: "/" },
           { label: "Contact Us" },
         ]}
+        backgroundImage="/assets/images/Page-Header-BG.jpg"
       />
 
       <SectionContainer maxWidth="2xl">

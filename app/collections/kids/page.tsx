@@ -22,6 +22,7 @@ export default function KidsCollection() {
           { label: "Collections", href: "/collections" },
           { label: "Kids Collection" },
         ]}
+        backgroundImage="/assets/images/Page-Header-BG.jpg"
       />
 
       <SectionContainer>

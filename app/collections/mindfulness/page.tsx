@@ -22,6 +22,7 @@ export default function MindfulnessCollection() {
           { label: "Collections", href: "/collections" },
           { label: "Mindfulness Collection" },
         ]}
+        backgroundImage="/assets/images/Page-Header-BG.jpg"
       />
 
       <SectionContainer>

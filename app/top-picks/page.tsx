@@ -25,6 +25,7 @@ export default function TopPicks() {
           { label: "Home", href: "/" },
           { label: "Top Picks" },
         ]}
+        backgroundImage="/assets/images/Page-Header-BG.jpg"
       />
 
       <SectionContainer>

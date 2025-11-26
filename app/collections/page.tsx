@@ -40,6 +40,7 @@ export default function Collections() {
           { label: "Home", href: "/" },
           { label: "Collections" },
         ]}
+        backgroundImage="/assets/images/Page-Header-BG.jpg"
       />
 
       <SectionContainer>
