@@ -10,7 +10,6 @@ export const metadata: Metadata = {
   title: "Serenyo - Kids Bookstore",
   description: "Enchanting Stories for Every Little Dreamer",
 };
-
 export default function RootLayout({
   children,
 }: Readonly<{
