@@ -27,7 +27,7 @@ const menuItems: MenuItem[] = [
     ]
   },
   { label: "Books", href: "/books" },
-  { label: "Collections", href: "/collections" },
+  // { label: "Collections", href: "/collections" },
   { label: "Campaigns", href: "/campaigns" },
   { label: "Top Picks", href: "/top-picks" },
 ];

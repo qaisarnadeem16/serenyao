@@ -8,6 +8,7 @@ import TestimonialsSection from "@/components/pages/home/TestimonialsSection";
 import BringStoriesHomeSection from "@/components/pages/home/BringStoriesHomeSection";
 import { ArrowRight } from "lucide-react";
 import TrustedPartnerSection from "@/components/pages/home/TrustedPartnerSection";
+import { booksData } from "@/lib/books-data";
 
 export default function Home() {
   return (
@@ -162,28 +163,18 @@ export default function Home() {
         badge="Handpicked for You"
         title="Discover Your Next Favorite Book."
         className="bg-main-bg"
-        products={[
-          {
-            id: 1,
-            name: "Whiskers' Big Day Out",
-            image: "/assets/images/product-1.jpg",
+        products={booksData
+          .flatMap((collection) => collection.books)
+          .slice(0, 3)
+          .map((book, index) => ({
+            id: index + 1,
+            name: book.title,
+            image: book.image,
             price: "$18.00",
-          },
-          {
-            id: 2,
-            name: "The Explorer of the Ice Age",
-            image: "/assets/images/product-2.jpg",
-            price: "$18.00",
-          },
-          {
-            id: 3,
-            name: "Jungle Journey",
-            image: "/assets/images/product-3.jpg",
-            price: "$18.00",
-          },
-        ]}
+            href: `/books/${book.slug}`,
+          }))}
         buttonLabel="Browse All Collections"
-        buttonHref="/collections"
+        buttonHref="/books"
       />
 
        {/* Trusted Partner Section */}
