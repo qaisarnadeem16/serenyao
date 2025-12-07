@@ -23,9 +23,9 @@ export default function PageHero({ title, breadcrumbs, backgroundImage }: PageHe
         height: "350px",
       }}
     >
-      <div className="container h-full flex items-center justify-center py-30 md:py-10">
-        <div className="flex flex-col gap-3">
-          <h1 className="text-center text-h1 md:text-h1-tablet">{title}</h1>
+      <div className="container h-full flex items-center justify-center py-30 md:py-10 px-4 sm:px-5 md:px-10">
+        <div className="flex flex-col gap-3 w-full">
+          <h1 className="text-center text-h4 sm:text-h3 md:text-h2 lg:text-h1-tablet leading-tight px-2">{title}</h1>
           <Breadcrumb items={breadcrumbs} />
         </div>
       </div>

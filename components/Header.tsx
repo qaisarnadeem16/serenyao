@@ -26,6 +26,7 @@ const menuItems: MenuItem[] = [
       { label: "Product Details", href: "/products/product-details" },
     ]
   },
+  { label: "Books", href: "/books" },
   { label: "Collections", href: "/collections" },
   { label: "Campaigns", href: "/campaigns" },
   { label: "Top Picks", href: "/top-picks" },

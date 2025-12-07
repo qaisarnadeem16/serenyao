@@ -7,8 +7,9 @@ interface Product {
   id: number;
   name: string;
   image: string;
-  price: string;
+  price?: string;
   author?: string;
+  href?: string;
 }
 
 interface ProductShowcaseSectionProps {
@@ -52,30 +53,52 @@ export default function ProductShowcaseSection({
             >
               {/* Product Image */}
               <div className="relative w-full rounded-xl aspect-square overflow-hidden">
-                <div className="absolute top-4 left-4 z-10">
-                  <span className=" px-3 py-1 rounded-full text-body1 font-semibold text-primary">
-                    {product.price}
-                  </span>
-                </div>
+                {product.price && (
+                  <div className="absolute top-4 left-4 z-10">
+                    <span className=" px-3 py-1 rounded-full text-body1 font-semibold text-primary">
+                      {product.price}
+                    </span>
+                  </div>
+                )}
                 <div className="absolute top-4 right-4 z-10">
                   <button className="p-3 rounded-full bg-primary text-secondary font-bold hover:text-primary hover:bg-secondary transition-colors">
                     <ShoppingCart className="w-4 h-4" />
                   </button>
                 </div>
-                <Image
-                  src={product.image}
-                  alt={product.name}
-                  width={400}
-                  height={400}
-                  className="w-full h-full object-cover"
-                />
+                {product.href ? (
+                  <Link href={product.href}>
+                    <Image
+                      src={product.image}
+                      alt={product.name}
+                      width={400}
+                      height={400}
+                      className="w-full h-full object-cover"
+                    />
+                  </Link>
+                ) : (
+                  <Image
+                    src={product.image}
+                    alt={product.name}
+                    width={400}
+                    height={400}
+                    className="w-full h-full object-cover"
+                  />
+                )}
               </div>
 
               {/* Product Info */}
               <div className="py-6 px-2">
-                <h3 className="text-h5 md:text-h5-tablet text-primary mb-2">
-                  {product.name}
-                </h3>
+                {product.href ? (
+                  <Link href={product.href}>
+                    <h3 className="text-h5 md:text-h5-tablet text-primary mb-2 hover:text-purple transition-colors">
+                      {product.name}
+                    </h3>
+                  </Link>
+                ) : (
+                  <h3 className="text-h5 md:text-h5-tablet text-primary mb-2">
+                    {product.name}
+                  </h3>
+                )}
                 {product.author && (
                   <p className="text-body3 text-text mb-4">{product.author}</p>
                 )}

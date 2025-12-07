@@ -81,21 +81,22 @@ export default function Footer() {
                 </div>
               ) : (
                 <form onSubmit={handleNewsletterSubmit} className="flex flex-col gap-2">
-                  <div className="flex gap-2">
+                  <div className="flex flex-col sm:flex-row gap-2">
                     <input
                       type="email"
                       value={email}
                       onChange={(e) => setEmail(e.target.value)}
                       placeholder="Enter your email"
                       required
-                      className="flex-1 px-4 py-2.5 rounded-lg border border-gray text-body2 text-primary placeholder:text-text focus:outline-none focus:ring-2 focus:ring-purple"
+                      className="flex-1 px-4 py-2.5 sm:py-3 rounded-lg border border-gray text-body2 text-primary placeholder:text-text focus:outline-none focus:ring-2 focus:ring-purple w-full"
                     />
                     <Button
                       type="submit"
                       variant="default"
-                      className="bg-accent text-primary hover:bg-secondary px-6"
+                      className="bg-accent text-primary hover:bg-secondary px-6 py-2.5 sm:py-3 w-full sm:w-auto flex items-center justify-center gap-2 sm:gap-0 min-w-[50px] sm:min-w-[60px]"
                     >
                       <Mail className="w-5 h-5" />
+                      <span className="sm:hidden">Subscribe</span>
                     </Button>
                   </div>
                   <p className="text-caption text-text text-center md:text-left">
@@ -107,7 +108,7 @@ export default function Footer() {
           </div>
 
           {/* Links Sections */}
-          <div className="w-full md:w-[55%] grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-6">
+          <div className="w-full md:w-[55%] grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 md:gap-6">
             {/* Collections */}
             <div>
               <h6 className="text-h6 text-primary mb-4 font-medium">Collections</h6>
