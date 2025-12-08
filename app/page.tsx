@@ -157,6 +157,7 @@ export default function Home() {
         buttonLabel="Learn More"
         buttonHref="/about-us"
       />
+      
 
       {/* Featured Collections Section */}
       <ProductShowcaseSection
