@@ -2,9 +2,7 @@ import PageHero from "@/components/common/PageHero";
 import SectionContainer from "@/components/common/SectionContainer";
 import ImageTextSection from "@/components/common/ImageTextSection";
 import { booksData } from "@/lib/books-data";
-import Link from "next/link";
-import Image from "next/image";
-import { Button } from "@/components/ui/button";
+import BookCard from "@/components/common/BookCard";
 
 export default function BooksPage() {
   return (
@@ -54,41 +52,18 @@ export default function BooksPage() {
                 </>
               </ImageTextSection>
 
-              <div id={collection.id} className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mt-8 scroll-mt-20">
+              <div id={collection.id} className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 mt-8 scroll-mt-20">
                 {collection.books.map((book) => (
-                  <Link
+                  <BookCard
                     key={book.id}
-                    href={`/books/${book.slug}`}
-                    className="group bg-white rounded-lg overflow-hidden shadow-sm hover:shadow-lg transition-all duration-300"
-                  >
-                    <div className="aspect-[3/4] relative overflow-hidden">
-                      <Image
-                        src={book.image}
-                        alt={book.title}
-                        fill
-                        className="object-cover group-hover:scale-105 transition-transform duration-300"
-                      />
-                    </div>
-                    <div className="p-6">
-                      <h3 className="text-h6 mb-2 text-primary group-hover:text-purple transition-colors">
-                        {book.title}
-                      </h3>
-                      {book.titleGerman && (
-                        <p className="text-body3 text-text mb-2 italic">{book.titleGerman}</p>
-                      )}
-                      <p className="text-body3 text-text mb-4">{book.category}</p>
-                      {book.ageRange && (
-                        <p className="text-caption text-purple mb-4">Ages {book.ageRange}</p>
-                      )}
-                      <Button
-                        variant="default"
-                        className="w-full bg-accent text-primary hover:bg-secondary"
-                        asChild
-                      >
-                        <span>View Details</span>
-                      </Button>
-                    </div>
-                  </Link>
+                    id={book.id}
+                    title={book.title}
+                    titleGerman={book.titleGerman}
+                    image={book.image}
+                    category={book.category}
+                    ageRange={book.ageRange}
+                    slug={book.slug}
+                  />
                 ))}
               </div>
             </div>
